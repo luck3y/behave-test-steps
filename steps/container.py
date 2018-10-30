@@ -207,9 +207,6 @@ class Container(object):
             return d.inspect_container(container=self.container.get('Id'))
 
     def get_output(self, history=True):
-        try:
-            return d.logs(stdout=True, stderr=True, logs=True, container=self.container)
-        except:
             return d.attach(container=self.container, stream=False, logs=history)
 
     def remove_image(self, force=False):
