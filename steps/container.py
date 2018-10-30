@@ -208,7 +208,7 @@ class Container(object):
 
     def get_output(self, history=True):
         try:
-            return d.logs(container=self.container)
+            return d.logs(stdout=True, stderr=True, logs=True, container=self.container)
         except:
             return d.attach(container=self.container, stream=False, logs=history)
 
